@@ -1,0 +1,45 @@
+<ion-content padding>
+  <ion-fab right top>
+    <button ion-fab color="light" style="margin-top: 60px"><ion-icon name="arrow-dropdown"></ion-icon></button>
+    <ion-fab-list side="down" style="margin-top: 120px">
+      <button ion-fab><ion-icon name="alarm"></ion-icon></button>
+      <button ion-fab><ion-icon name="trash"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <form>
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-input placeholder="Телефон" type="text" name="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea placeholder="Комментарий" name="comment"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Товары</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>Product 1</ion-item>
+          <ion-item>Product 2</ion-item>
+          <ion-item>Product 3</ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button full ion-button type="submit">Сохранить</button>
+        </ion-col>
+        <ion-col>
+          <button full ion-button>Позвонить</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

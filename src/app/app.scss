@@ -15,6 +15,7 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.platform-android .content {
-  margin-top: 20px;
+.platform-core .scroll-content,
+.platform-android .scroll-content {
+  margin-top: 45px;
 }

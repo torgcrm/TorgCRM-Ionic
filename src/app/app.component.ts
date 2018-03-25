@@ -4,12 +4,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { OrdersPage } from '../pages/orders/orders';
+import {OrderTabs} from "../pages/orders/order-tabs";
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = OrdersPage;
+  rootPage:any = OrderTabs;
   isAndroid: boolean = false;
   pages;
 
@@ -26,9 +27,9 @@ export class MyApp {
     }
 
     this.pages = [
-      {title: 'Заказы', component: OrdersPage, icon: 'play'},
-      {title: 'Клиенты', component: OrdersPage, icon: 'play'},
-      {title: 'Товары', component: OrdersPage, icon: 'play'},
+      {title: 'Заказы', icon: 'basket', component: OrderTabs},
+      {title: 'Клиенты', icon: 'contacts', component: OrderTabs},
+      {title: 'Товары', icon: 'cube', component: OrderTabs},
     ]
   }
 

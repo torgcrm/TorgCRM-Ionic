@@ -14,11 +14,15 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               private http: HttpClient) {
-    this.user = new User()
+    this.user = new User();
+    this.user.url = 'http://192.168.1.65:8080/torgcrm-web';
   }
 
   authorize(form) {
-    this.http.post('http://localhost:8080/torgcrm-web/auth/login', form)
+    // http://192.168.1.65:8080/torgcrm-web/
+    localStorage.setItem('url', form.url);
+
+    this.http.post(form.url + '/auth/login', form)
       .subscribe((token:Token) => {
         localStorage.setItem('token', token.token)
         this.navCtrl.setRoot(OrdersPage)

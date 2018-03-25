@@ -1,8 +1,23 @@
-<side-menu title="Заказы"></side-menu>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item-sliding #item *ngFor="let order of orders">
+      <button ion-item (click)="onEdit(order)">
+        <div>
+          <ion-icon name="cart"></ion-icon>
+          <span>{{order.phone}}</span>
+        </div>
+        <div>
+          <span *ngFor="let product of order.products">
+            {{product.title}},
+          </span>
+        </div>
+      </button>
+      <ion-item-options side="left">
+        <button ion-button (click)="onCall(order)">Позвонить</button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button (click)="onDelete(order)">Удалить</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
