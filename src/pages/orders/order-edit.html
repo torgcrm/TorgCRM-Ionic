@@ -3,7 +3,7 @@
     <button ion-fab color="light" style="margin-top: 60px"><ion-icon name="arrow-dropdown"></ion-icon></button>
     <ion-fab-list side="down" style="margin-top: 120px">
       <button ion-fab><ion-icon name="alarm"></ion-icon></button>
-      <button ion-fab><ion-icon name="trash"></ion-icon></button>
+      <button ion-fab (click)="onDelete()"><ion-icon name="trash"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 

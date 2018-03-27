@@ -21,10 +21,8 @@ export class OrdersPage implements OnInit {
       .subscribe(res => this.orders = res)
   }
 
-  onDelete(order) {
-  }
-
   onEdit(order) {
+    localStorage.setItem('selectedOrder', order.id);
     this.navCtrl.push(OrderEdit)
   }
 
