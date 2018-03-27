@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { OrdersPage } from '../pages/orders/orders';
-import { SideMenu } from '../parts/sidemenu/sidemenu';
+import {MyApp} from './app.component';
+import {OrdersPage} from '../pages/orders/orders';
+import {SideMenu} from '../parts/sidemenu/sidemenu';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from "../interceptors/JwtInterceptor";
 import {LoginPage} from "../pages/login/login";
@@ -45,4 +45,5 @@ import {OrderEdit} from "../pages/orders/order-edit";
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ]
 })
-export class AppModule {}
+export class AppModule {
+}

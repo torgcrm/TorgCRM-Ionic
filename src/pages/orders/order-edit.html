@@ -1,9 +1,15 @@
 <ion-content padding>
   <ion-fab right top>
-    <button ion-fab color="light" style="margin-top: 60px"><ion-icon name="arrow-dropdown"></ion-icon></button>
+    <button ion-fab color="light" style="margin-top: 60px">
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
     <ion-fab-list side="down" style="margin-top: 120px">
-      <button ion-fab><ion-icon name="alarm"></ion-icon></button>
-      <button ion-fab (click)="onDelete()"><ion-icon name="trash"></ion-icon></button>
+      <button ion-fab>
+        <ion-icon name="alarm"></ion-icon>
+      </button>
+      <button ion-fab (click)="onDelete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
     </ion-fab-list>
   </ion-fab>
 
@@ -24,9 +30,9 @@
       </ion-card-header>
       <ion-card-content>
         <ion-list>
-          <ion-item>Product 1</ion-item>
-          <ion-item>Product 2</ion-item>
-          <ion-item>Product 3</ion-item>
+          <button ion-item *ngFor="let p of order.products">
+            <span>{{p.title}}</span>
+          </button>
         </ion-list>
       </ion-card-content>
     </ion-card>
@@ -37,7 +43,7 @@
           <button full ion-button type="submit">Сохранить</button>
         </ion-col>
         <ion-col>
-          <button full ion-button>Позвонить</button>
+          <button full ion-button (click)="onCall()">Позвонить</button>
         </ion-col>
       </ion-row>
     </ion-grid>
