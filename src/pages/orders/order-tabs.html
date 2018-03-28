@@ -3,4 +3,5 @@
 <ion-tabs>
   <ion-tab tabIcon="briefcase" tabTitle="Новые" [root]="newOrders"></ion-tab>
   <ion-tab tabIcon="paper-plane" tabTitle="В обработке" [root]="pendingOrders"></ion-tab>
+  <ion-tab tabIcon="add-circle" tabTitle="Новый заказ" [root]="createOrder" [rootParams]="{isNew: true}"></ion-tab>
 </ion-tabs>

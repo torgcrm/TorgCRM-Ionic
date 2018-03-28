@@ -30,7 +30,7 @@
       </ion-card-header>
       <ion-card-content>
         <ion-list>
-          <button ion-item *ngFor="let p of order.products">
+          <button ion-item *ngFor="let p of order?.products ">
             <span>{{p.title}}</span>
           </button>
         </ion-list>
@@ -40,9 +40,9 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <button full ion-button type="submit">Сохранить</button>
+          <button full ion-button type="submit" (click)="onSave()" >Сохранить</button>
         </ion-col>
-        <ion-col>
+        <ion-col [hidden]="isNew">
           <button full ion-button (click)="onCall()">Позвонить</button>
         </ion-col>
       </ion-row>

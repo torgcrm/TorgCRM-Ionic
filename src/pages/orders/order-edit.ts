@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {NavController} from "ionic-angular";
+import {NavController, NavParams} from "ionic-angular";
 import {OrdersPage} from "./orders";
 import {CallNumber} from "@ionic-native/call-number";
 
@@ -8,17 +8,17 @@ import {CallNumber} from "@ionic-native/call-number";
   selector: 'page-order-edit',
   templateUrl: 'order-edit.html'
 })
-export class OrderEdit implements OnInit {
+export class OrderEdit {
 
-  private order;
+  order: any;
+  isNew: boolean = false;
 
-  ngOnInit(): void {
-    this.order = JSON.parse(localStorage.getItem('selectedOrder'));
-  }
-
-  constructor(private call:CallNumber,
-              private http: HttpClient,
-              private nav: NavController) {
+  constructor(private navParams?:NavParams,
+              private call?:CallNumber,
+              private http?: HttpClient,
+              private nav?: NavController) {
+    this.order = this.navParams.get('order');
+    this.isNew = this.navParams.get('isNew');
   }
 
   onDelete() {
@@ -31,6 +31,9 @@ export class OrderEdit implements OnInit {
     this.call.callNumber(this.order.phone, true);
   }
 
-  onOpenProduct() {
+  onSave() {
+    this.http.post(localStorage.getItem('url') + '/orders/new', this.order).subscribe()
   }
+
+  onOpenProduct(product) {}
 }

@@ -22,8 +22,7 @@ export class OrdersPage implements OnInit {
   }
 
   onEdit(order) {
-    localStorage.setItem('selectedOrder', JSON.stringify(order));
-    this.navCtrl.push(OrderEdit)
+    this.navCtrl.push(OrderEdit, {'order': order});
   }
 
   onCall(order) {
