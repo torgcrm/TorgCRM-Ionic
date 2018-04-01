@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {NavController, NavParams} from "ionic-angular";
 import {OrdersPage} from "./orders";
 import {CallNumber} from "@ionic-native/call-number";
+import {Order} from "../../model/Order";
+import {ProductSearch} from "../products/product-search";
 
 @Component({
   selector: 'page-order-edit',
@@ -10,7 +12,7 @@ import {CallNumber} from "@ionic-native/call-number";
 })
 export class OrderEdit {
 
-  order: any;
+  order: Order;
   isNew: boolean = false;
 
   constructor(private navParams?:NavParams,
@@ -19,6 +21,9 @@ export class OrderEdit {
               private nav?: NavController) {
     this.order = this.navParams.get('order');
     this.isNew = this.navParams.get('isNew');
+    if (this.isNew) {
+      this.order = new Order();
+    }
   }
 
   onDelete() {
@@ -36,4 +41,8 @@ export class OrderEdit {
   }
 
   onOpenProduct(product) {}
+
+  onAddNewProduct() {
+    this.nav.push(ProductSearch);
+  }
 }

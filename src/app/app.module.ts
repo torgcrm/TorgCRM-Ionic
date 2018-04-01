@@ -13,6 +13,8 @@ import {LoginPage} from "../pages/login/login";
 import {OrderTabs} from "../pages/orders/order-tabs";
 import {CallNumber} from "@ionic-native/call-number";
 import {OrderEdit} from "../pages/orders/order-edit";
+import {ProductSearch} from "../pages/products/product-search";
+import {CRMRange} from "../components/CRMRange";
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import {OrderEdit} from "../pages/orders/order-edit";
     OrdersPage,
     OrderTabs,
     OrderEdit,
+    ProductSearch,
     SideMenu,
-    LoginPage
+    LoginPage,
+    CRMRange,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import {OrderEdit} from "../pages/orders/order-edit";
     OrdersPage,
     OrderTabs,
     OrderEdit,
-    LoginPage
+    ProductSearch,
+    LoginPage,
+    CRMRange,
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,19 @@
+<ion-content padding>
+  <form #search>
+    <ion-input placeholder="Введите название продукта" required></ion-input>
+  </form>
+  <ion-list>
+    <ion-item *ngFor="let o of [1,2,3,4,5,6]" class="product-search-item">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <p>Военная пилотка времен второй мировой войны (35 размер)</p>
+          </ion-col>
+          <ion-col col-4>
+            <crm-range></crm-range>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
