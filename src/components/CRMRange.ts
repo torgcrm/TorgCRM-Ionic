@@ -1,19 +1,23 @@
-import {Component} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
   templateUrl: 'crm-range.html',
   selector: 'crm-range'
 })
 export class CRMRange {
-  value: number = 0;
+  @Input() quantity: number;
+  @Input() idx: number;
 
-  increment() {
-    this.value++;
+  @Output()
+  public increment: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  public decrement: EventEmitter<any> = new EventEmitter<any>();
+
+  onIncrement() {
+    this.increment.emit(this.idx)
   }
 
-  decrement() {
-    if (this.value > 0)
-      this.value--;
+  onDecrement() {
+    this.decrement.emit(this.idx)
   }
-
 }

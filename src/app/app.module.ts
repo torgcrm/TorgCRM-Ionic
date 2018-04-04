@@ -40,7 +40,6 @@ import {CRMRange} from "../components/CRMRange";
     OrderEdit,
     ProductSearch,
     LoginPage,
-    CRMRange,
   ],
   providers: [
     StatusBar,

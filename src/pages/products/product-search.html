@@ -1,16 +1,29 @@
 <ion-content padding>
+  <ion-fab [hidden]="isNew" right top>
+    <button ion-fab color="light" style="margin-top: 60px">
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
+    <ion-fab-list side="down" style="margin-top: 120px">
+      <button ion-fab (click)="onFinishAddingProducts()" >
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
   <form #search>
     <ion-input placeholder="Введите название продукта" required></ion-input>
   </form>
   <ion-list>
-    <ion-item *ngFor="let o of [1,2,3,4,5,6]" class="product-search-item">
+    <ion-item *ngFor="let p of productSearchModel; let idx = index" class="product-search-item">
       <ion-grid>
         <ion-row>
           <ion-col col-8>
             <p>Военная пилотка времен второй мировой войны (35 размер)</p>
           </ion-col>
           <ion-col col-4>
-            <crm-range></crm-range>
+            <crm-range [quantity]="quantity(idx)" [idx]="idx"
+                       (increment)="onIncrement($event)" (decrement)="onDecrement($event)">
+            </crm-range>
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, EventEmitter, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {NavController, NavParams} from "ionic-angular";
 import {OrdersPage} from "./orders";
@@ -42,7 +42,20 @@ export class OrderEdit {
 
   onOpenProduct(product) {}
 
+  onFinishAddingProducts() {
+    let productSearchModel = JSON.parse(localStorage.getItem('productSearchModel'));
+    let products = [];
+    productSearchModel.forEach(function(val) {
+      if (val.quantity > 0) {
+        products.push(val)
+      }
+    });
+    this.order.products = products;
+  }
+
   onAddNewProduct() {
-    this.nav.push(ProductSearch);
+    const evt = new EventEmitter<any>();
+    evt.subscribe(evt => this.onFinishAddingProducts());
+    this.nav.push(ProductSearch,{'callback': evt});
   }
 }
