@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Product} from "../../model/Product";
-import {NavController, NavOptions, NavParams} from "ionic-angular";
+import {NavController, NavParams} from "ionic-angular";
 
 @Component({
   templateUrl: 'product-search.html',

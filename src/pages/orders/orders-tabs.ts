@@ -4,10 +4,10 @@ import {LoginPage} from "../login/login";
 import {OrderEdit} from "./order-edit";
 
 @Component({
-  selector: 'order-tabs',
-  templateUrl: 'order-tabs.html'
+  selector: 'orders-tabs',
+  templateUrl: 'orders-tabs.html'
 })
-export class OrderTabs {
+export class OrdersTabsPage {
   private newOrders: any;
   private pendingOrders: any;
   private searchOrders: any;

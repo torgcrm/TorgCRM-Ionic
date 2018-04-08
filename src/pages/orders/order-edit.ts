@@ -1,5 +1,4 @@
-import {Component, EventEmitter, OnInit} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {Component, EventEmitter} from "@angular/core";
 import {NavController, NavParams} from "ionic-angular";
 import {OrdersPage} from "./orders";
 import {CallNumber} from "@ionic-native/call-number";
@@ -16,9 +15,8 @@ export class OrderEdit {
   order: Order;
   isNew: boolean = false;
 
-  constructor(private navParams?:NavParams,
-              private call?:CallNumber,
-              private http?: HttpClient,
+  constructor(private navParams?: NavParams,
+              private call?: CallNumber,
               private nav?: NavController,
               private service?: OrderService) {
     this.order = this.navParams.get('order');
@@ -38,7 +36,7 @@ export class OrderEdit {
     this.call.callNumber(this.order.phone, true);
   }
 
-  onSave(orderForm:any) {
+  onSave(orderForm: any) {
     this.order.phone = orderForm.phone;
     this.order.comment = orderForm.comment;
     this.order.id = orderForm.id;
@@ -47,12 +45,13 @@ export class OrderEdit {
     this.service.create(this.order).subscribe();
   }
 
-  onOpenProduct(product) {}
+  onOpenProduct(product) {
+  }
 
   onFinishAddingProducts() {
     let productSearchModel = JSON.parse(localStorage.getItem('productSearchModel'));
     let products = [];
-    productSearchModel.forEach(function(val) {
+    productSearchModel.forEach(function (val) {
       if (val.quantity > 0) {
         products.push(val)
       }
@@ -63,6 +62,6 @@ export class OrderEdit {
   onAddNewProduct() {
     const evt = new EventEmitter<any>();
     evt.subscribe(evt => this.onFinishAddingProducts());
-    this.nav.push(ProductSearch,{'callback': evt});
+    this.nav.push(ProductSearch, {'callback': evt});
   }
 }

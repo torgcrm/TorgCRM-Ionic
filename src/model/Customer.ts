@@ -4,6 +4,7 @@ export class Customer {
   secondName: string;
   birthDate: string;
   comments: string;
+  fullName: string;
 
   constructor() {}
 }

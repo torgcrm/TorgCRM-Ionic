@@ -1,0 +1,7 @@
+<side-menu title="Клиенты"></side-menu>
+
+<ion-tabs>
+  <ion-tab tabIcon="briefcase" tabTitle="Клиенты" [root]="customersPage"></ion-tab>
+  <ion-tab tabIcon="paper-plane" tabTitle="Поиск" [root]="customerSearchPage"></ion-tab>
+  <ion-tab tabIcon="add-circle" tabTitle="Создать" [root]="createCustomerPage" [rootParams]="{isNew: true}"></ion-tab>
+</ion-tabs>

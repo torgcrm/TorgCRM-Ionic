@@ -1,1 +1,15 @@
-<h1>Customers</h1>
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding #item *ngFor="let customer of customers">
+      <button ion-item (click)="onEdit(customer)">
+        <div>
+          <ion-icon name="cart"></ion-icon>
+          <span>{{customer.lastName}} {{customer.firstName}} {{customer.secondName}}</span>
+        </div>
+      </button>
+      <ion-item-options side="left">
+        <button ion-button (click)="onCall(customer)">Позвонить</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,34 @@
+<side-menu title="Добавить товар по фото"></side-menu>
+
+<ion-content padding>
+  <form #orderForm="ngForm">
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-label stacked>Название товара</ion-label>
+          <ion-input placeholder="Название товара" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Поставщик</ion-label>
+          <ion-input placeholder="Поставщик" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Комментарий</ion-label>
+          <ion-textarea placeholder="Комментарий"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button full (click)="addPhoto()">Добавить фото</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button full ion-button type="submit" >Сохранить</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
