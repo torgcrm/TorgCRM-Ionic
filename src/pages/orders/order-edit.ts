@@ -5,6 +5,7 @@ import {OrdersPage} from "./orders";
 import {CallNumber} from "@ionic-native/call-number";
 import {Order} from "../../model/Order";
 import {ProductSearch} from "../products/product-search";
+import {OrderService} from "../../services/OrderService";
 
 @Component({
   selector: 'page-order-edit',
@@ -18,7 +19,8 @@ export class OrderEdit {
   constructor(private navParams?:NavParams,
               private call?:CallNumber,
               private http?: HttpClient,
-              private nav?: NavController) {
+              private nav?: NavController,
+              private service?: OrderService) {
     this.order = this.navParams.get('order');
     this.isNew = this.navParams.get('isNew');
     if (this.isNew) {
@@ -27,17 +29,22 @@ export class OrderEdit {
   }
 
   onDelete() {
-    this.http.delete(localStorage.getItem('url') + '/orders/delete/' + this.order.id).subscribe(res => {
+    this.service.delete(this.order.id).subscribe(res => {
       this.nav.setRoot(OrdersPage)
-    })
+    });
   }
 
   onCall() {
     this.call.callNumber(this.order.phone, true);
   }
 
-  onSave() {
-    this.http.post(localStorage.getItem('url') + '/orders/new', this.order).subscribe()
+  onSave(orderForm:any) {
+    this.order.phone = orderForm.phone;
+    this.order.comment = orderForm.comment;
+    this.order.id = orderForm.id;
+    this.order.customer.firstName = orderForm.clientName;
+
+    this.service.create(this.order).subscribe();
   }
 
   onOpenProduct(product) {}

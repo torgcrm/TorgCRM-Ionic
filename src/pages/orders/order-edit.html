@@ -13,12 +13,12 @@
     </ion-fab-list>
   </ion-fab>
 
-  <form>
+  <form #orderForm="ngForm">
     <ion-card>
       <ion-card-content>
         <ion-item>
           <ion-label stacked>Имя клиента</ion-label>
-          <ion-input placeholder="Имя клиента" required [(ngModel)]="order.clientName"
+          <ion-input placeholder="Имя клиента" required [ngModel]="order?.customer?.firstName"
                      #clientName="ngModel" type="text" name="clientName"></ion-input>
         </ion-item>
         <ion-item *ngIf="clientName.invalid && clientName.touched">
@@ -27,7 +27,8 @@
 
         <ion-item>
           <ion-label stacked>Телефон</ion-label>
-          <ion-input placeholder="Телефон" required [(ngModel)]="order.phone" #phone="ngModel" type="text" name="phone"></ion-input>
+          <ion-input placeholder="Телефон" required [ngModel]="order?.phone"
+                     #phone="ngModel" type="text" name="phone"></ion-input>
         </ion-item>
         <ion-item *ngIf="phone.invalid && phone.touched">
           <p class="text-warning">Телефон не заполнен</p>
@@ -35,7 +36,8 @@
 
         <ion-item>
           <ion-label stacked>Комментарий</ion-label>
-          <ion-textarea placeholder="Комментарий" [(ngModel)]="order.comment" #comment="ngModel" name="comment"></ion-textarea>
+          <ion-textarea placeholder="Комментарий" [ngModel]="order?.comment"
+                        #comment="ngModel" name="comment"></ion-textarea>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -58,7 +60,7 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <button full ion-button type="submit" (click)="onSave(order)" >Сохранить</button>
+          <button full ion-button type="submit" (click)="onSave(orderForm.value)" >Сохранить</button>
         </ion-col>
         <ion-col [hidden]="isNew">
           <button full ion-button (click)="onCall()">Позвонить</button>

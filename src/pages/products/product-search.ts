@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ProductSearchModel} from "../../model/ProductSearch";
+import {Product} from "../../model/Product";
 import {NavController, NavOptions, NavParams} from "ionic-angular";
 
 @Component({
@@ -18,12 +18,14 @@ export class ProductSearch implements OnInit {
   ngOnInit(): void {
     this.productSearchModel = [];
 
-    let model1 = new ProductSearchModel();
+    let model1 = new Product();
+    model1.id = 1;
     model1.productId = 1;
     model1.quantity = 0;
     model1.title = "Product 1";
 
-    let model2 = new ProductSearchModel();
+    let model2 = new Product();
+    model1.id = 2;
     model2.productId = 2;
     model2.quantity = 0;
     model2.title = "Product 2";

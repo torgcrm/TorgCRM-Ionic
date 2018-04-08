@@ -15,6 +15,7 @@ import {CallNumber} from "@ionic-native/call-number";
 import {OrderEdit} from "../pages/orders/order-edit";
 import {ProductSearch} from "../pages/products/product-search";
 import {CRMRange} from "../components/CRMRange";
+import {OrderService} from "../services/OrderService";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {CRMRange} from "../components/CRMRange";
     SplashScreen,
     HttpClientModule,
     CallNumber,
+    OrderService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ]
