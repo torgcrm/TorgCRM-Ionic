@@ -1,9 +1,21 @@
 <side-menu title="Товары"></side-menu>
 
 <ion-content padding>
-  <ion-list>
-    <button ion-button full (click)="addProductPhoto()">Добавить по фото</button>
-    <button ion-button full>Добавить с сайта</button>
-    <button ion-button full>Добавить текстом</button>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button full (click)="addProductPhoto()">Добавить по фото</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button full>Добавить с сайта</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button full>Добавить текстом</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

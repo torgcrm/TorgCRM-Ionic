@@ -22,6 +22,7 @@ import {CustomerService} from "../services/CustomerService";
 import {ProductFunctions} from "../pages/products/product-functions";
 import {AddProductPhoto} from "../pages/products/add-product-photo";
 import {Camera} from "@ionic-native/camera";
+import {ImageService} from "../services/ImageService";
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import {Camera} from "@ionic-native/camera";
     Camera,
     OrderService,
     CustomerService,
+    ImageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ]
