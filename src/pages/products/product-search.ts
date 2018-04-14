@@ -22,13 +22,13 @@ export class ProductSearch implements OnInit {
     model1.id = 1;
     model1.productId = 1;
     model1.quantity = 0;
-    model1.title = "Product 1";
+    model1.title = "ProductPage 1";
 
     let model2 = new Product();
     model1.id = 2;
     model2.productId = 2;
     model2.quantity = 0;
-    model2.title = "Product 2";
+    model2.title = "ProductPage 2";
 
     this.productSearchModel.push(model1);
     this.productSearchModel.push(model2);

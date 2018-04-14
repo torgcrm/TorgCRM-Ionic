@@ -1,10 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 
 @Component({
-  templateUrl: 'product.html',
-  selector: 'product'
+  templateUrl: 'product-page.html',
+  selector: 'product-page'
 })
-export class Product implements OnInit {
+export class ProductPage implements OnInit {
 
   constructor() {
   }

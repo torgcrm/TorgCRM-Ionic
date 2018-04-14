@@ -20,7 +20,6 @@ export class OrdersPage implements OnInit {
   ngOnInit(): void {
     this.service.getAll()
       .subscribe((res: Array<Order>) => {
-        console.log(res);
         this.orders = res;
       })
   }

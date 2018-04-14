@@ -10,6 +10,6 @@ export class ImageService extends CRMBasicService {
   }
 
   upload(base64: string) {
-    this.http.post(environment.apiUrl + "/image/upload", base64).subscribe();
+    return this.http.post(environment.apiUrl + "/image/upload", base64);
   }
 }

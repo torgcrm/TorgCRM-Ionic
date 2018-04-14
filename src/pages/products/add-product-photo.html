@@ -1,23 +1,30 @@
 <side-menu title="Добавить товар по фото"></side-menu>
 
 <ion-content padding>
-  <form #orderForm="ngForm">
+  <form #productForm="ngForm">
     <ion-card>
       <ion-card-content>
         <ion-item>
           <ion-label stacked>Название товара</ion-label>
-          <ion-input placeholder="Название товара" required></ion-input>
+          <ion-input placeholder="Название товара" [ngModel]="product.title" name="title" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label stacked>Поставщик</ion-label>
-          <ion-input placeholder="Поставщик" required></ion-input>
+          <ion-input placeholder="Поставщик" [ngModel]="product.supplier" name="supplier" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label stacked>Комментарий</ion-label>
-          <ion-textarea placeholder="Комментарий"></ion-textarea>
+          <ion-textarea placeholder="Комментарий" [ngModel]="product.comments" name="comments"></ion-textarea>
         </ion-item>
       </ion-card-content>
     </ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let img of images">
+          <img src="50px" height="50px" src="data:image/jpeg;base64,{{img.data}}" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -26,7 +33,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <button full ion-button type="submit" >Сохранить</button>
+          <button full ion-button type="submit" (click)="onSave(productForm.value)" >Сохранить</button>
         </ion-col>
       </ion-row>
     </ion-grid>
